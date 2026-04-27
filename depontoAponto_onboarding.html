@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>De Ponto a Ponto — Secullum Web Ultimate com Reconhecimento Facial</title>
+<meta name="description" content="Há mais de 30 anos a De Ponto a Ponto oferece controle de ponto com tecnologia de ponta. Conheça o Secullum Web Ultimate com Reconhecimento Facial.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --rosa:#E91E8C;
+  --rosa-dark:#C0166E;
+  --rosa-light:#FF6BBD;
+  --roxo:#3D1A78;
+  --roxo-mid:#5B2EAD;
+  --roxo-light:#7B52CC;
+  --preto:#0A0A0F;
+  --cinza-escuro:#1A1A2E;
+  --cinza:#2D2D44;
+  --cinza-claro:#F5F0FF;
+  --branco:#FFFFFF;
+  --texto-muted:#8E8EA8;
+  --borda:#2D2D44;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--preto);color:var(--branco);line-height:1.6;overflow-x:hidden}
+
+/* === SCROLLBAR === */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--preto)}
+::-webkit-scrollbar-thumb{background:var(--rosa);border-radius:3px}
+
+/* === NAV === */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,10,15,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(233,30,140,0.15);padding:14px 5%;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:12px}
+.nav-logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--rosa),var(--roxo));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.nav-brand{font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;line-height:1.2}
+.nav-brand span{color:var(--rosa)}
+.nav-brand small{display:block;font-size:10px;font-weight:400;color:var(--texto-muted);letter-spacing:.08em}
+.nav-cta{background:linear-gradient(135deg,var(--rosa),var(--rosa-dark));color:#fff;border:none;padding:10px 22px;border-radius:8px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:13px;cursor:pointer;transition:all .2s;text-decoration:none;display:inline-block}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(233,30,140,0.4)}
+
+/* === HERO === */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 5% 80px;position:relative;overflow:hidden;background:var(--preto)}
+.hero-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.hero-orb-1{position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(61,26,120,0.6) 0%,transparent 70%);border-radius:50%}
+.hero-orb-2{position:absolute;bottom:-150px;left:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(233,30,140,0.3) 0%,transparent 70%);border-radius:50%}
+.hero-dots{position:absolute;inset:0;background-image:radial-gradient(rgba(233,30,140,0.08) 1px,transparent 1px);background-size:40px 40px}
+.hero-inner{position:relative;max-width:820px;margin:0 auto}
+.badge{display:inline-flex;align-items:center;gap:8px;background:rgba(233,30,140,0.12);border:1px solid rgba(233,30,140,0.3);color:var(--rosa-light);padding:7px 18px;border-radius:24px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:28px}
+.badge-dot{width:7px;height:7px;background:var(--rosa);border-radius:50%;animation:blink 1.4s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-family:'Montserrat',sans-serif;font-size:clamp(32px,6vw,64px);font-weight:900;line-height:1.05;margin-bottom:20px;letter-spacing:-.02em}
+.hero h1 .grad{background:linear-gradient(135deg,var(--rosa-light),var(--rosa),var(--roxo-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:clamp(15px,2vw,19px);color:var(--texto-muted);max-width:600px;margin:0 auto 40px;font-weight:300;line-height:1.7}
+.hero-sub strong{color:rgba(255,255,255,.85);font-weight:500}
+.hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:60px}
+.btn-hero{padding:16px 36px;border-radius:10px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;cursor:pointer;border:none;transition:all .25s;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-hero-primary{background:linear-gradient(135deg,var(--rosa),var(--rosa-dark));color:#fff;box-shadow:0 0 30px rgba(233,30,140,0.35)}
+.btn-hero-primary:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(233,30,140,0.5)}
+.btn-hero-sec{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.2)}
+.btn-hero-sec:hover{border-color:var(--rosa);background:rgba(233,30,140,0.08)}
+.hero-stats{display:flex;gap:32px;justify-content:center;flex-wrap:wrap}
+.h-stat{text-align:center}
+.h-stat-num{font-family:'Montserrat',sans-serif;font-size:clamp(28px,4vw,42px);font-weight:900;background:linear-gradient(135deg,var(--rosa-light),var(--rosa));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.h-stat-label{font-size:12px;color:var(--texto-muted);margin-top:6px;line-height:1.4}
+.h-stat-div{width:1px;background:rgba(255,255,255,.08);align-self:stretch;margin:0 8px}
+
+/* === SECTIONS === */
+.section{padding:90px 5%}
+.section-inner{max-width:1080px;margin:0 auto}
+.section-tag{display:inline-block;background:rgba(233,30,140,0.1);border:1px solid rgba(233,30,140,0.25);color:var(--rosa-light);padding:5px 14px;border-radius:20px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+.section-title{font-family:'Montserrat',sans-serif;font-size:clamp(26px,4vw,42px);font-weight:800;line-height:1.15;margin-bottom:12px}
+.section-title .g{background:linear-gradient(135deg,var(--rosa-light),var(--rosa));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.section-sub{color:var(--texto-muted);font-size:16px;max-width:580px;line-height:1.7;margin-bottom:50px}
+
+/* === DOR === */
+.section-dor{background:linear-gradient(180deg,var(--preto),var(--cinza-escuro))}
+.pain-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.pain-card{background:rgba(255,255,255,.03);border:1px solid rgba(233,30,140,0.15);border-left:3px solid var(--rosa);border-radius:14px;padding:24px;transition:all .25s}
+.pain-card:hover{background:rgba(233,30,140,0.05);transform:translateY(-3px);border-color:rgba(233,30,140,0.4)}
+.pain-icon{font-size:30px;margin-bottom:14px}
+.pain-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;color:var(--rosa-light);margin-bottom:8px}
+.pain-desc{font-size:13px;color:var(--texto-muted);line-height:1.6}
+.alert-box{background:rgba(233,30,140,0.08);border:1px solid rgba(233,30,140,0.25);border-radius:14px;padding:24px 28px;margin-top:32px;display:flex;align-items:flex-start;gap:16px}
+.alert-box-icon{font-size:28px;flex-shrink:0;margin-top:2px}
+.alert-box-text{font-size:14px;color:rgba(255,255,255,.8);line-height:1.7}
+.alert-box-text strong{color:var(--rosa-light)}
+
+/* === SOLUÇÃO === */
+.section-solucao{background:var(--cinza-escuro)}
+.flow-steps{display:flex;align-items:center;gap:0;flex-wrap:wrap;justify-content:center;margin:40px 0}
+.fs{text-align:center;width:130px;flex-shrink:0}
+.fs-circle{width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,var(--rosa),var(--roxo));display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 12px;box-shadow:0 0 20px rgba(233,30,140,0.35)}
+.fs-num{width:20px;height:20px;background:var(--rosa);border-radius:50%;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;position:absolute;top:-4px;right:-4px}
+.fs-icon-wrap{position:relative;display:inline-block}
+.fs-title{font-size:12px;font-weight:600;color:rgba(255,255,255,.8);font-family:'Montserrat',sans-serif;line-height:1.3}
+.fs-arrow{font-size:22px;color:var(--rosa);opacity:.5;flex-shrink:0;margin:0 2px;padding-bottom:28px}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.feat-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:28px;transition:all .25s;cursor:default}
+.feat-card:hover{border-color:rgba(233,30,140,0.35);background:rgba(233,30,140,0.04);transform:translateY(-3px)}
+.feat-icon{font-size:34px;margin-bottom:16px}
+.feat-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:16px;color:#fff;margin-bottom:10px}
+.feat-desc{font-size:13px;color:var(--texto-muted);line-height:1.65}
+.feat-tag{display:inline-block;background:rgba(233,30,140,0.15);color:var(--rosa-light);font-size:11px;font-weight:600;padding:3px 12px;border-radius:20px;margin-top:14px}
+.feat-card.destaque{border-color:rgba(233,30,140,0.4);background:rgba(233,30,140,0.06)}
+
+/* === ROI INFOGRÁFICO === */
+.section-roi{background:var(--preto)}
+.roi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:40px}
+.roi-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:28px 20px;text-align:center;position:relative;overflow:hidden}
+.roi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--rosa),var(--roxo-light))}
+.roi-emoji{font-size:32px;margin-bottom:14px}
+.roi-num{font-family:'Montserrat',sans-serif;font-size:38px;font-weight:900;background:linear-gradient(135deg,var(--rosa-light),var(--rosa));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.roi-num sub{font-size:18px;-webkit-text-fill-color:transparent;background:linear-gradient(135deg,#aaa,#ccc);-webkit-background-clip:text}
+.roi-label{font-size:12px;color:var(--texto-muted);margin-top:8px;line-height:1.4}
+.roi-bar{height:5px;background:rgba(255,255,255,.06);border-radius:3px;margin-top:16px;overflow:hidden}
+.roi-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--rosa),var(--roxo-light));width:0;transition:width 1.2s ease}
+.roi-calc{background:linear-gradient(135deg,rgba(61,26,120,0.3),rgba(233,30,140,0.1));border:1px solid rgba(233,30,140,0.2);border-radius:16px;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px}
+.roi-calc-left h3{font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;margin-bottom:6px}
+.roi-calc-left p{color:var(--texto-muted);font-size:14px;max-width:400px}
+.roi-calc-num{font-family:'Montserrat',sans-serif;font-size:48px;font-weight:900;background:linear-gradient(135deg,var(--rosa-light),var(--rosa));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-align:right;line-height:1}
+.roi-calc-num small{font-size:14px;color:var(--texto-muted);display:block;font-weight:400;-webkit-text-fill-color:var(--texto-muted)}
+
+/* === TIMELINE === */
+.timeline{position:relative;padding:8px 0 8px 30px}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,var(--rosa),var(--roxo-light),transparent)}
+.tl-item{margin-bottom:28px;position:relative}
+.tl-dot{position:absolute;left:-39px;top:14px;width:20px;height:20px;border-radius:50%;background:linear-gradient(135deg,var(--rosa),var(--roxo));display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0}
+.tl-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:18px 20px}
+.tl-time{display:inline-block;background:rgba(233,30,140,0.12);color:var(--rosa-light);font-size:11px;font-weight:700;padding:2px 10px;border-radius:20px;margin-bottom:8px}
+.tl-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;color:#fff;margin-bottom:4px}
+.tl-desc{font-size:13px;color:var(--texto-muted)}
+
+/* === COMPARATIVO === */
+.section-comp{background:var(--cinza-escuro)}
+.comp-table{width:100%;border-collapse:collapse;margin:32px 0}
+.comp-table th{padding:16px 14px;font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;text-align:left;border-bottom:1px solid rgba(255,255,255,.06)}
+.comp-table th:first-child{width:38%;color:var(--texto-muted)}
+.comp-table th.ult{color:var(--rosa-light);background:rgba(233,30,140,0.06);border-radius:8px 8px 0 0}
+.comp-table td{padding:14px;font-size:13px;border-bottom:1px solid rgba(255,255,255,.04);color:rgba(255,255,255,.7);vertical-align:middle}
+.comp-table tr:hover td{background:rgba(255,255,255,.02)}
+.comp-table td.ult{background:rgba(233,30,140,0.04);border-left:1px solid rgba(233,30,140,.1);border-right:1px solid rgba(233,30,140,.1);text-align:center}
+.chk{color:#4ADE80;font-weight:700;font-size:16px}
+.xk{color:rgba(255,255,255,.15);font-size:16px}
+.pk{color:#FACC15;font-weight:700}
+
+/* === DEPOIMENTOS === */
+.section-dep{background:var(--preto)}
+.dep-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.dep-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:30px;position:relative;transition:all .25s}
+.dep-card:hover{border-color:rgba(233,30,140,0.25);background:rgba(233,30,140,0.03);transform:translateY(-2px)}
+.dep-stars{color:var(--rosa);font-size:15px;margin-bottom:16px;letter-spacing:2px}
+.dep-aspas{position:absolute;top:18px;right:22px;font-size:64px;color:rgba(233,30,140,0.08);font-family:Georgia,serif;line-height:1}
+.dep-text{font-size:14px;color:rgba(255,255,255,.7);font-style:italic;line-height:1.75;margin-bottom:22px}
+.dep-text strong{color:rgba(255,255,255,.9);font-style:normal}
+.dep-author{display:flex;align-items:center;gap:12px}
+.dep-av{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,var(--rosa),var(--roxo));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;font-family:'Montserrat',sans-serif;flex-shrink:0}
+.dep-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;color:#fff}
+.dep-role{font-size:12px;color:var(--texto-muted)}
+
+/* === PLANOS === */
+.section-planos{background:linear-gradient(180deg,var(--cinza-escuro),var(--preto))}
+.planos-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.plano{background:rgba(255,255,255,.03);border:1.5px solid rgba(255,255,255,.06);border-radius:18px;padding:32px 26px;position:relative;transition:all .25s}
+.plano:hover{transform:translateY(-4px)}
+.plano.dest{border-color:var(--rosa);background:rgba(233,30,140,0.06);box-shadow:0 0 40px rgba(233,30,140,0.12)}
+.plano-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--rosa),var(--rosa-dark));color:#fff;font-size:11px;font-weight:700;font-family:'Montserrat',sans-serif;padding:4px 18px;border-radius:20px;white-space:nowrap}
+.plano-nome{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;color:#fff;margin-bottom:4px}
+.plano-sub{font-size:12px;color:var(--texto-muted);margin-bottom:20px}
+.plano-preco{font-family:'Montserrat',sans-serif;font-size:14px;color:var(--rosa-light);font-weight:600;background:rgba(233,30,140,0.1);border-radius:8px;padding:10px 14px;margin-bottom:24px}
+.plano-features{list-style:none;display:flex;flex-direction:column;gap:11px;margin-bottom:28px}
+.plano-features li{font-size:13px;color:rgba(255,255,255,.7);display:flex;align-items:flex-start;gap:9px;line-height:1.4}
+.plano-features li::before{content:'✓';color:#4ADE80;font-weight:700;flex-shrink:0;margin-top:1px}
+.plano-btn{width:100%;padding:13px;border-radius:9px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;cursor:pointer;border:none;transition:all .2s}
+.plano-btn-primary{background:linear-gradient(135deg,var(--rosa),var(--rosa-dark));color:#fff}
+.plano-btn-primary:hover{box-shadow:0 6px 24px rgba(233,30,140,0.45);transform:translateY(-1px)}
+.plano-btn-sec{background:transparent;color:rgba(255,255,255,.6);border:1.5px solid rgba(255,255,255,.1)}
+.plano-btn-sec:hover{border-color:rgba(233,30,140,.4);color:var(--rosa-light)}
+
+/* === CTA / FECHAMENTO === */
+.section-cta{background:var(--preto);padding:60px 5% 100px}
+.cta-box{max-width:1080px;margin:0 auto;background:linear-gradient(135deg,var(--roxo) 0%,var(--cinza-escuro) 40%,rgba(233,30,140,0.15) 100%);border:1px solid rgba(233,30,140,0.25);border-radius:24px;padding:64px 48px;text-align:center;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;top:-100px;right:-100px;width:300px;height:300px;background:radial-gradient(circle,rgba(233,30,140,0.2),transparent 70%);border-radius:50%}
+.cta-box::after{content:'';position:absolute;bottom:-80px;left:-80px;width:250px;height:250px;background:radial-gradient(circle,rgba(61,26,120,0.5),transparent 70%);border-radius:50%}
+.cta-inner{position:relative;z-index:1}
+.cta-urgency{display:inline-flex;align-items:center;gap:8px;background:rgba(244,163,32,0.15);border:1px solid rgba(244,163,32,0.3);color:#F4C430;padding:8px 20px;border-radius:24px;font-size:12px;font-weight:700;font-family:'Montserrat',sans-serif;letter-spacing:.05em;text-transform:uppercase;margin-bottom:28px}
+.cta-title{font-family:'Montserrat',sans-serif;font-size:clamp(26px,4.5vw,48px);font-weight:900;line-height:1.1;margin-bottom:18px}
+.cta-title .g{background:linear-gradient(135deg,var(--rosa-light),var(--rosa));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.cta-sub{font-size:16px;color:rgba(255,255,255,.65);max-width:540px;margin:0 auto 36px;line-height:1.7}
+.countdown{display:flex;gap:12px;justify-content:center;margin-bottom:36px;flex-wrap:wrap}
+.cd-box{background:rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px 18px;text-align:center;min-width:72px}
+.cd-num{font-family:'Montserrat',sans-serif;font-size:32px;font-weight:900;color:#fff;line-height:1}
+.cd-label{font-size:10px;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.06em;margin-top:4px}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:32px}
+.btn-cta{padding:16px 36px;border-radius:10px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:15px;cursor:pointer;border:none;transition:all .25s;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-cta-wpp{background:linear-gradient(135deg,#25D366,#1BA64E);color:#fff;box-shadow:0 0 24px rgba(37,211,102,0.3)}
+.btn-cta-wpp:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(37,211,102,0.45)}
+.btn-cta-proposta{background:linear-gradient(135deg,var(--rosa),var(--rosa-dark));color:#fff;box-shadow:0 0 24px rgba(233,30,140,0.3)}
+.btn-cta-proposta:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(233,30,140,0.45)}
+.btn-cta-sec{background:transparent;color:rgba(255,255,255,.7);border:1.5px solid rgba(255,255,255,.15)}
+.btn-cta-sec:hover{border-color:rgba(255,255,255,.4);color:#fff}
+.cta-trust{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,.5)}
+.trust-item span{color:rgba(255,255,255,.8)}
+.bonus-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;max-width:1080px;margin:48px auto 0}
+.bonus-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:24px;text-align:center}
+.bonus-icon{font-size:36px;margin-bottom:12px}
+.bonus-title{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:700;color:#fff;margin-bottom:8px}
+.bonus-desc{font-size:12px;color:var(--texto-muted);line-height:1.5}
+.bonus-valor{font-size:12px;color:#4ADE80;font-weight:600;margin-top:8px}
+
+/* === CONTATO === */
+.section-contato{background:var(--cinza-escuro)}
+.contato-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+@media(max-width:700px){.contato-grid{grid-template-columns:1fr}}
+.contato-canal{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:18px;margin-bottom:14px;text-decoration:none;color:#fff;transition:all .2s}
+.contato-canal:hover{border-color:rgba(233,30,140,.35);background:rgba(233,30,140,.04);transform:translateX(4px)}
+.contato-canal-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.cc-wpp{background:#25D366}
+.cc-ig{background:linear-gradient(135deg,#833ab4,#e1306c,#fd1d1d)}
+.cc-fb{background:#1877F2}
+.canal-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px}
+.canal-sub{font-size:12px;color:var(--texto-muted);margin-top:2px}
+.form-box{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:32px}
+.form-box h3{font-family:'Montserrat',sans-serif;font-size:18px;font-weight:700;margin-bottom:6px}
+.form-box p{color:var(--texto-muted);font-size:13px;margin-bottom:24px}
+.fg{margin-bottom:16px}
+.fg label{display:block;font-size:12px;font-weight:600;color:rgba(255,255,255,.6);margin-bottom:6px;letter-spacing:.04em;text-transform:uppercase}
+.fg input,.fg select,.fg textarea{width:100%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:8px;color:#fff;font-family:'Inter',sans-serif;font-size:14px;padding:11px 14px;outline:none;transition:border-color .2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--rosa)}
+.fg select option{background:var(--cinza-escuro)}
+.fg textarea{height:80px;resize:vertical}
+.btn-form{width:100%;padding:13px;background:linear-gradient(135deg,var(--rosa),var(--rosa-dark));color:#fff;border:none;border-radius:9px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;cursor:pointer;transition:all .2s;margin-top:4px}
+.btn-form:hover{box-shadow:0 6px 24px rgba(233,30,140,.4);transform:translateY(-1px)}
+
+/* === FOOTER === */
+footer{background:var(--preto);border-top:1px solid rgba(255,255,255,.05);padding:40px 5%;text-align:center}
+.footer-logo{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:900;margin-bottom:8px}
+.footer-logo span{color:var(--rosa)}
+footer p{font-size:13px;color:var(--texto-muted)}
+
+/* === FLUTUANTE WPP === */
+.wpp-float{position:fixed;bottom:28px;right:28px;z-index:999;background:#25D366;border:none;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:all .2s;text-decoration:none;animation:wppPulse 2.5s ease-in-out infinite}
+.wpp-float:hover{transform:scale(1.08);box-shadow:0 6px 30px rgba(37,211,102,0.55)}
+@keyframes wppPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.4)}50%{box-shadow:0 4px 40px rgba(37,211,102,0.7)}}
+
+/* === LEAD FORM MODAL === */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px;animation:fadeIn .2s ease}
+.modal-overlay.hidden{display:none}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal{background:var(--cinza-escuro);border:1px solid rgba(233,30,140,.25);border-radius:20px;padding:40px;max-width:480px;width:100%;position:relative}
+.modal-close{position:absolute;top:14px;right:18px;background:transparent;border:none;color:var(--texto-muted);font-size:22px;cursor:pointer;transition:color .2s}
+.modal-close:hover{color:#fff}
+.modal h3{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:800;margin-bottom:6px}
+.modal h3 span{color:var(--rosa-light)}
+.modal > p{font-size:13px;color:var(--texto-muted);margin-bottom:24px}
+.modal-success{text-align:center;padding:20px 0;display:none}
+.modal-success .ms-icon{font-size:60px;margin-bottom:16px}
+.modal-success h3{color:#4ADE80}
+.modal-success p{color:var(--texto-muted);font-size:14px;margin-top:8px}
+
+/* === RESPONSIVE === */
+@media(max-width:768px){
+  .nav-cta{display:none}
+  .hero-actions{flex-direction:column;align-items:center}
+  .btn-hero{width:100%;justify-content:center}
+  .cta-box{padding:40px 24px}
+  .cta-btns{flex-direction:column;align-items:center}
+  .btn-cta{width:100%;justify-content:center}
+  .flow-steps{gap:6px}
+  .fs-arrow{display:none}
+}
+
+/* === ANIMATIONS === */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">
+    <div class="nav-logo-icon">☀️</div>
+    <div class="nav-brand">
+      De <span>Ponto</span> a Ponto
+      <small>Há mais de 30 anos superando expectativas</small>
+    </div>
+  </div>
+  <a href="#contato" class="nav-cta">📞 Falar com especialista</a>
+</nav>
+
+<!-- WPP FLUTUANTE -->
+<a class="wpp-float" href="https://wa.me/5521986497367" target="_blank" title="WhatsApp">💬</a>
+
+<!-- MODAL LEAD -->
+<div class="modal-overlay" id="leadModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">×</button>
+    <div id="formContent">
+      <h3>Antes de começar, <span>conte-nos sobre você</span></h3>
+      <p>Leva menos de 1 minuto e nos ajuda a personalizar o melhor plano para sua empresa.</p>
+      <div class="fg"><label>Seu nome</label><input type="text" id="mNome" placeholder="Nome completo"></div>
+      <div class="fg"><label>Empresa</label><input type="text" id="mEmpresa" placeholder="Nome da empresa"></div>
+      <div class="fg"><label>WhatsApp</label><input type="tel" id="mWpp" placeholder="(21) 99999-9999"></div>
+      <div class="fg">
+        <label>Número de funcionários</label>
+        <select id="mSize">
+          <option value="">Selecione...</option>
+          <option>Até 30 funcionários</option>
+          <option>30 a 100 funcionários</option>
+          <option>100 a 300 funcionários</option>
+          <option>Mais de 300 funcionários</option>
+        </select>
+      </div>
+      <button class="btn-form" onclick="submitLead()">🚀 Ver minha apresentação personalizada</button>
+    </div>
+    <div class="modal-success" id="successContent">
+      <div class="ms-icon">🎉</div>
+      <h3>Perfeito! Bem-vindo(a)!</h3>
+      <p>Preparamos tudo para você. Role a página e descubra como o Secullum Web Ultimate vai transformar sua empresa.</p>
+      <button class="btn-form" style="margin-top:20px" onclick="closeModal()">Ver a apresentação →</button>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg">
+    <div class="hero-orb-1"></div>
+    <div class="hero-orb-2"></div>
+    <div class="hero-dots"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="badge"><span class="badge-dot"></span> Tecnologia reconhecida em todo o Brasil</div>
+    <h1>Chega de fraudes no ponto.<br>Bem-vindo à era do <span class="grad">Reconhecimento Facial.</span></h1>
+    <p class="hero-sub">A <strong>De Ponto a Ponto</strong> traz o <strong>Secullum Web Ultimate</strong> — o sistema de controle de ponto mais completo do Brasil, com IA que identifica seu colaborador em <strong>0,3 segundos.</strong></p>
+    <div class="hero-actions">
+      <a href="https://wa.me/5521986497367?text=Olá!%20Vi%20a%20apresentação%20do%20Secullum%20Web%20Ultimate%20e%20quero%20saber%20mais!" target="_blank" class="btn-hero btn-hero-primary">💬 Quero uma demonstração grátis</a>
+      <a href="#solucao" class="btn-hero btn-hero-sec">▶ Como funciona</a>
+    </div>
+    <div class="hero-stats">
+      <div class="h-stat"><div class="h-stat-num">+30</div><div class="h-stat-label">anos de<br>mercado</div></div>
+      <div class="h-stat-div"></div>
+      <div class="h-stat"><div class="h-stat-num">8.000+</div><div class="h-stat-label">empresas<br>atendidas</div></div>
+      <div class="h-stat-div"></div>
+      <div class="h-stat"><div class="h-stat-num">99,7%</div><div class="h-stat-label">precisão no<br>reconhecimento</div></div>
+      <div class="h-stat-div"></div>
+      <div class="h-stat"><div class="h-stat-num">0,3s</div><div class="h-stat-label">tempo de<br>identificação</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DOR -->
+<section class="section section-dor" id="problema">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-tag">O problema real</div>
+      <h2 class="section-title">Sua empresa está <span class="g">perdendo dinheiro</span> todos os dias</h2>
+      <p class="section-sub">Sem um controle de ponto eficiente, o prejuízo é inevitável. Reconhece alguma dessas situações?</p>
+    </div>
+    <div class="pain-grid fade-up">
+      <div class="pain-card">
+        <div class="pain-icon">👥</div>
+        <div class="pain-title">Buddy Punching</div>
+        <div class="pain-desc">Colegas batendo o ponto uns pelos outros. Sem reconhecimento facial, é impossível saber quem realmente chegou.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">📋</div>
+        <div class="pain-title">Planilha e papel</div>
+        <div class="pain-desc">Registros manuais cheios de erros. Fechamento de folha levando dias inteiros da sua equipe de RH.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">⚖️</div>
+        <div class="pain-title">Risco trabalhista</div>
+        <div class="pain-desc">Cada registro incorreto é uma potencial ação judicial. Uma única reclamatória pode custar R$ 38.000 ou mais.</div>
+      </div>
+      <div class="pain-card">
+        <div class="pain-icon">📍</div>
+        <div class="pain-title">Múltiplas unidades</div>
+        <div class="pain-desc">Como saber quem está presente em cada filial agora mesmo? Sem um sistema web, a resposta é: não sabe.</div>
+      </div>
+    </div>
+    <div class="alert-box fade-up">
+      <div class="alert-box-icon">⚠️</div>
+      <div class="alert-box-text"><strong>Dado importante:</strong> Uma pesquisa da ABRH mostra que <strong>73% das empresas brasileiras</strong> já sofreram algum tipo de fraude no controle de ponto. O prejuízo médio é de <strong>R$ 6.000 por funcionário por ano</strong> em horas extras indevidas, ausências não registradas e erros de folha de pagamento.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUÇÃO -->
+<section class="section section-solucao" id="solucao">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-tag">A solução</div>
+      <h2 class="section-title">Secullum Web Ultimate com <span class="g">Reconhecimento Facial</span></h2>
+      <p class="section-sub">Tecnologia de IA que identifica seu colaborador em menos de 1 segundo — online ou offline. Funciona com óculos, máscara e qualquer iluminação.</p>
+    </div>
+
+    <div class="flow-steps fade-up">
+      <div class="fs">
+        <div class="fs-icon-wrap"><div class="fs-circle">📷</div><div class="fs-num">1</div></div>
+        <div class="fs-title">Funcionário se aproxima do equipamento</div>
+      </div>
+      <div class="fs-arrow">→</div>
+      <div class="fs">
+        <div class="fs-icon-wrap"><div class="fs-circle">🧠</div><div class="fs-num">2</div></div>
+        <div class="fs-title">IA reconhece em 0,3 segundos</div>
+      </div>
+      <div class="fs-arrow">→</div>
+      <div class="fs">
+        <div class="fs-icon-wrap"><div class="fs-circle">✅</div><div class="fs-num">3</div></div>
+        <div class="fs-title">Registro automático e seguro</div>
+      </div>
+      <div class="fs-arrow">→</div>
+      <div class="fs">
+        <div class="fs-icon-wrap"><div class="fs-circle">📊</div><div class="fs-num">4</div></div>
+        <div class="fs-title">Painel web em tempo real</div>
+      </div>
+      <div class="fs-arrow">→</div>
+      <div class="fs">
+        <div class="fs-icon-wrap"><div class="fs-circle">📁</div><div class="fs-num">5</div></div>
+        <div class="fs-title">Exportação eSocial/AFD com 1 clique</div>
+      </div>
+    </div>
+
+    <div class="feat-grid fade-up">
+      <div class="feat-card destaque">
+        <div class="feat-icon">🤳</div>
+        <div class="feat-title">Reconhecimento Facial Online e Offline</div>
+        <div class="feat-desc">Exclusivo do Web Ultimate. IA com liveness detection que detecta fotos impressas e tentativas de fraude. Funciona mesmo sem internet, sincronizando automaticamente.</div>
+        <span class="feat-tag">⭐ Exclusivo do Ultimate</span>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🌐</div>
+        <div class="feat-title">Totalmente Web — Acesse de qualquer lugar</div>
+        <div class="feat-desc">Nenhum software para instalar. Acesse o painel completo pelo navegador, monitore presenças em tempo real e receba alertas de ausência no celular.</div>
+        <span class="feat-tag">Disponível em todos os planos</span>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📱</div>
+        <div class="feat-title">Ponto por APP com Geolocalização</div>
+        <div class="feat-desc">Colaboradores externos batem o ponto pelo app com confirmação de localização via GPS. Comprovante enviado automaticamente por e-mail.</div>
+        <span class="feat-tag">Incluso no Ultimate</span>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📜</div>
+        <div class="feat-title">100% Legal — Portaria 671/MTE</div>
+        <div class="feat-desc">Sistema homologado. Exportação automática de AFD, eSocial e REP-C com um clique. Nenhuma multa, nenhum risco trabalhista por falta de conformidade.</div>
+        <span class="feat-tag">Conformidade garantida</span>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">📊</div>
+        <div class="feat-title">Dashboard de Rotatividade</div>
+        <div class="feat-desc">Gráficos automáticos de presença, faltas, atrasos e rotatividade. Tome decisões estratégicas de RH com base em dados reais e atualizados.</div>
+        <span class="feat-tag">Exclusivo do Ultimate e PRO</span>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon">🗂️</div>
+        <div class="feat-title">Registro de Atividades Diárias</div>
+        <div class="feat-desc">Colaboradores registram o que fizeram durante o dia. Controle de produtividade integrado ao ponto, disponível somente no Web Ultimate.</div>
+        <span class="feat-tag">⭐ Exclusivo do Ultimate</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROI -->
+<section class="section section-roi" id="roi">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-tag">Retorno sobre investimento</div>
+      <h2 class="section-title">Números que <span class="g">falam por si</span></h2>
+      <p class="section-sub">Empresas que adotaram o Secullum Web Ultimate relatam resultados expressivos já no primeiro mês.</p>
+    </div>
+    <div class="roi-grid fade-up">
+      <div class="roi-card">
+        <div class="roi-emoji">💰</div>
+        <div class="roi-num">97%</div>
+        <div class="roi-label">Redução em registros fraudulentos</div>
+        <div class="roi-bar"><div class="roi-fill" style="--w:97%" data-width="97%"></div></div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-emoji">⏱️</div>
+        <div class="roi-num">8h</div>
+        <div class="roi-label">Economizadas por mês no RH</div>
+        <div class="roi-bar"><div class="roi-fill" style="--w:80%" data-width="80%"></div></div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-emoji">⚖️</div>
+        <div class="roi-num">0</div>
+        <div class="roi-label">Ações trabalhistas por ponto</div>
+        <div class="roi-bar"><div class="roi-fill" style="--w:100%" data-width="100%"></div></div>
+      </div>
+      <div class="roi-card">
+        <div class="roi-emoji">🚀</div>
+        <div class="roi-num">3x</div>
+        <div class="roi-label">Retorno sobre investimento no 1º ano</div>
+        <div class="roi-bar"><div class="roi-fill" style="--w:90%" data-width="90%"></div></div>
+      </div>
+    </div>
+    <div class="roi-calc fade-up">
+      <div class="roi-calc-left">
+        <h3>💡 Cálculo de economia estimada</h3>
+        <p>Uma empresa com <strong id="empSize">100 funcionários</strong> que adota o Secullum Web Ultimate economiza em média por ano com fraudes eliminadas, horas extras indevidas e processos trabalhistas evitados.</p>
+        <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">
+          <button onclick="setSize(50,'R$ 36.000')" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:7px 14px;border-radius:8px;font-size:12px;cursor:pointer;font-family:Inter,sans-serif;transition:all .2s">Até 50</button>
+          <button onclick="setSize(100,'R$ 72.000')" style="background:rgba(233,30,140,.15);border:1px solid rgba(233,30,140,.35);color:var(--rosa-light);padding:7px 14px;border-radius:8px;font-size:12px;cursor:pointer;font-family:Inter,sans-serif;transition:all .2s" id="btn100">50-100</button>
+          <button onclick="setSize(300,'R$ 216.000')" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:7px 14px;border-radius:8px;font-size:12px;cursor:pointer;font-family:Inter,sans-serif;transition:all .2s">100-300</button>
+          <button onclick="setSize(500,'R$ 360.000')" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:7px 14px;border-radius:8px;font-size:12px;cursor:pointer;font-family:Inter,sans-serif;transition:all .2s">+300</button>
+        </div>
+      </div>
+      <div>
+        <div class="roi-calc-num" id="calcVal">R$ 72.000</div>
+        <div class="roi-calc-num"><small>economia estimada/ano</small></div>
+      </div>
+    </div>
+
+    <div style="margin-top:48px" class="fade-up">
+      <h3 style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;margin-bottom:24px">⚡ Implantação em menos de 1 semana</h3>
+      <div class="timeline">
+        <div class="tl-item"><div class="tl-dot">1</div><div class="tl-card"><span class="tl-time">Dia 1</span><div class="tl-title">Instalação e configuração</div><div class="tl-desc">Nosso time técnico configura tudo remotamente. Sem precisar de TI interno.</div></div></div>
+        <div class="tl-item"><div class="tl-dot">2</div><div class="tl-card"><span class="tl-time">Dias 2–3</span><div class="tl-title">Cadastro facial em lote</div><div class="tl-desc">Importamos sua base de colaboradores. Média de 15 minutos para 100 funcionários.</div></div></div>
+        <div class="tl-item"><div class="tl-dot">3</div><div class="tl-card"><span class="tl-time">Dias 4–7</span><div class="tl-title">Treinamento e go-live</div><div class="tl-desc">Capacitação do RH e supervisores. Sistema em operação plena com suporte dedicado.</div></div></div>
+        <div class="tl-item"><div class="tl-dot">✓</div><div class="tl-card"><span class="tl-time">Mês 1</span><div class="tl-title">Primeiros resultados</div><div class="tl-desc">ROI mensurável já no primeiro fechamento de folha. Relatório comparativo incluído.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARATIVO -->
+<section class="section section-comp" id="comparativo">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-tag">Comparativo de planos</div>
+      <h2 class="section-title">Por que escolher o <span class="g">Web Ultimate?</span></h2>
+      <p class="section-sub">Veja o que separa o Web Ultimate dos outros planos — e de qualquer concorrente.</p>
+    </div>
+    <div style="overflow-x:auto" class="fade-up">
+      <table class="comp-table">
+        <thead>
+          <tr>
+            <th>Funcionalidade</th>
+            <th style="text-align:center">Web BASIC</th>
+            <th style="text-align:center">Web PRO</th>
+            <th class="ult" style="text-align:center">⭐ Web ULTIMATE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Totalmente WEB</td><td style="text-align:center"><span class="chk">✓</span></td><td style="text-align:center"><span class="chk">✓</span></td><td class="ult"><span class="chk">✓</span></td></tr>
+          <tr><td>Backup Automático em Nuvem</td><td style="text-align:center"><span class="chk">✓</span></td><td style="text-align:center"><span class="chk">✓</span></td><td class="ult"><span class="chk">✓</span></td></tr>
+          <tr><td>Ponto por QR Code</td><td style="text-align:center"><span class="chk">✓</span></td><td style="text-align:center"><span class="chk">✓</span></td><td class="ult"><span class="chk">✓</span></td></tr>
+          <tr><td>Ponto por APP com Geolocalização</td><td style="text-align:center"><span class="chk">✓</span></td><td style="text-align:center"><span class="chk">✓</span></td><td class="ult"><span class="chk">✓</span></td></tr>
+          <tr><td>Comprovante de ponto por E-mail</td><td style="text-align:center"><span class="chk">✓</span></td><td style="text-align:center"><span class="chk">✓</span></td><td class="ult"><span class="chk">✓</span></td></tr>
+          <tr><td>Solicitar foto ao incluir ponto</td><td style="text-align:center"><span class="xk">✗</span></td><td style="text-align:center"><span class="chk">✓</span></td><td class="ult"><span class="chk">✓</span></td></tr>
+          <tr><td>Dashboard de Rotatividade</td><td style="text-align:center"><span class="xk">✗</span></td><td style="text-align:center"><span class="chk">✓</span></td><td class="ult"><span class="chk">✓</span></td></tr>
+          <tr><td style="color:#fff;font-weight:600">🤳 Reconhecimento Facial Online/Offline</td><td style="text-align:center"><span class="xk">✗</span></td><td style="text-align:center"><span class="xk">✗</span></td><td class="ult" style="font-weight:700"><span class="chk">✓ Exclusivo</span></td></tr>
+          <tr><td style="color:#fff;font-weight:600">📋 Registro de Atividades Diárias</td><td style="text-align:center"><span class="xk">✗</span></td><td style="text-align:center"><span class="xk">✗</span></td><td class="ult" style="font-weight:700"><span class="chk">✓ Exclusivo</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="section section-dep" id="depoimentos">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-tag">Quem já usa</div>
+      <h2 class="section-title">+8.000 empresas <span class="g">confiam</span> na solução</h2>
+      <p class="section-sub">Veja o que nossos clientes dizem sobre o Secullum Web Ultimate com Reconhecimento Facial.</p>
+    </div>
+    <div class="dep-grid fade-up">
+      <div class="dep-card">
+        <div class="dep-stars">★★★★★</div>
+        <div class="dep-aspas">"</div>
+        <p class="dep-text">Em 2 meses, <strong>zeramos completamente os casos de buddy punching</strong> que antes nos custavam quase R$ 15.000 por mês em horas extras indevidas. O retorno foi imediato e o sistema é muito fácil de usar.</p>
+        <div class="dep-author"><div class="dep-av">MR</div><div><div class="dep-name">Marcos Rodrigues</div><div class="dep-role">Diretor de RH — Grupo Alimentar (380 func.)</div></div></div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-stars">★★★★★</div>
+        <div class="dep-aspas">"</div>
+        <p class="dep-text">A integração com nosso sistema de folha foi perfeita. O <strong>fechamento de ponto que levava 3 dias passou a levar 4 horas.</strong> Nossa equipe ficou impressionada com a economia de tempo e a precisão dos relatórios.</p>
+        <div class="dep-author"><div class="dep-av">CF</div><div><div class="dep-name">Carla Fonseca</div><div class="dep-role">Gerente de Pessoas — Construtora Norte (210 func.)</div></div></div>
+      </div>
+      <div class="dep-card">
+        <div class="dep-stars">★★★★★</div>
+        <div class="dep-aspas">"</div>
+        <p class="dep-text">Tínhamos 12 filiais e gerenciar tudo era um caos. Hoje vejo em tempo real quem está em cada unidade, <strong>recebo alertas de atraso e o compliance trabalhista está perfeito.</strong> Nunca mais tivemos problema com auditorias.</p>
+        <div class="dep-author"><div class="dep-av">AT</div><div><div class="dep-name">Alexandre Teixeira</div><div class="dep-role">CEO — Rede Varejo Sul (12 unidades)</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANOS -->
+<section class="section section-planos" id="planos">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-tag">Planos e preços</div>
+      <h2 class="section-title">Escolha o plano <span class="g">ideal para você</span></h2>
+      <p class="section-sub">Preço único por licença. Sem surpresas na mensalidade. Suporte completo incluído em todos os planos.</p>
+    </div>
+    <div class="planos-grid fade-up">
+      <div class="plano">
+        <div class="plano-nome">Web BASIC</div>
+        <div class="plano-sub">Para começar com o essencial</div>
+        <div class="plano-preco">Consulte nossa equipe para uma proposta personalizada</div>
+        <ul class="plano-features">
+          <li>Totalmente WEB</li>
+          <li>Backup automático em nuvem</li>
+          <li>Ponto por QR Code</li>
+          <li>Ponto por APP com Geolocalização</li>
+          <li>Comprovante de ponto por e-mail</li>
+        </ul>
+        <a href="https://wa.me/5521986497367?text=Quero%20saber%20mais%20sobre%20o%20Web%20BASIC" target="_blank"><button class="plano-btn plano-btn-sec">Saber mais →</button></a>
+      </div>
+      <div class="plano">
+        <div class="plano-nome">Web PRO</div>
+        <div class="plano-sub">Mais controle para sua equipe</div>
+        <div class="plano-preco">Consulte nossa equipe para uma proposta personalizada</div>
+        <ul class="plano-features">
+          <li>Tudo do Web Basic</li>
+          <li>Solicitar foto ao incluir ponto</li>
+          <li>Dashboard de rotatividade</li>
+          <li>Relatórios avançados de RH</li>
+        </ul>
+        <a href="https://wa.me/5521986497367?text=Quero%20saber%20mais%20sobre%20o%20Web%20PRO" target="_blank"><button class="plano-btn plano-btn-sec">Saber mais →</button></a>
+      </div>
+      <div class="plano dest">
+        <div class="plano-badge">⭐ Mais completo</div>
+        <div class="plano-nome">Web ULTIMATE</div>
+        <div class="plano-sub">O controle de ponto definitivo</div>
+        <div class="plano-preco">Consulte nossa equipe — condições especiais disponíveis</div>
+        <ul class="plano-features">
+          <li>Tudo do Web PRO</li>
+          <li><strong style="color:#fff">Reconhecimento Facial Online/Offline</strong></li>
+          <li><strong style="color:#fff">Registro de Atividades Diárias</strong></li>
+          <li>Liveness detection anti-fraude</li>
+          <li>Suporte prioritário 24/7</li>
+          <li>Integração com ERPs e folha de pagamento</li>
+          <li>Multi-unidades com painel central</li>
+        </ul>
+        <a href="https://wa.me/5521986497367?text=Quero%20contratar%20o%20Secullum%20Web%20Ultimate%20com%20Reconhecimento%20Facial%20agora!" target="_blank"><button class="plano-btn plano-btn-primary">🚀 Contratar agora</button></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FECHAMENTO -->
+<section class="section-cta" id="oferta">
+  <div class="cta-box fade-up">
+    <div class="cta-inner">
+      <div class="cta-urgency">🔥 Oferta por tempo limitado</div>
+      <h2 class="cta-title">Pronto para <span class="g">eliminar fraudes</span><br>e ter controle total do seu time?</h2>
+      <p class="cta-sub">Mais de 8.000 empresas já tomaram essa decisão. Fale agora com um especialista da De Ponto a Ponto e receba uma proposta personalizada em minutos.</p>
+      <div class="countdown">
+        <div class="cd-box"><div class="cd-num" id="cdH">00</div><div class="cd-label">horas</div></div>
+        <div class="cd-box"><div class="cd-num" id="cdM">15</div><div class="cd-label">min</div></div>
+        <div class="cd-box"><div class="cd-num" id="cdS">00</div><div class="cd-label">seg</div></div>
+      </div>
+      <p style="font-size:12px;color:rgba(255,255,255,.35);margin:-20px 0 28px">⏳ Bônus de implantação gratuita válido por tempo limitado</p>
+      <div class="cta-btns">
+        <a class="btn-cta btn-cta-wpp" href="https://wa.me/5521986497367?text=Olá!%20Quero%20contratar%20o%20Secullum%20Web%20Ultimate%20com%20condições%20especiais!" target="_blank">💬 Falar no WhatsApp agora</a>
+        <a class="btn-cta btn-cta-proposta" href="#contato">📋 Solicitar proposta</a>
+        <a class="btn-cta btn-cta-sec" href="https://wa.me/5521986497367?text=Quero%20agendar%20uma%20demonstração%20do%20Secullum%20Web%20Ultimate" target="_blank">📅 Agendar demo gratuita</a>
+      </div>
+      <div class="cta-trust">
+        <div class="trust-item">🔒 <span>Sem fidelidade no 1º mês</span></div>
+        <div class="trust-item">💳 <span>Parcelamento disponível</span></div>
+        <div class="trust-item">🛡️ <span>Garantia de satisfação</span></div>
+        <div class="trust-item">📞 <span>Suporte em português</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bonus-grid fade-up">
+    <div class="bonus-card">
+      <div class="bonus-icon">🎁</div>
+      <div class="bonus-title">Implementação gratuita</div>
+      <div class="bonus-desc">Configuração e treinamento sem custo adicional para contratos fechados com nossa equipe.</div>
+      <div class="bonus-valor">✓ Valor: R$ 2.500 grátis</div>
+    </div>
+    <div class="bonus-card">
+      <div class="bonus-icon">📊</div>
+      <div class="bonus-title">Relatório de ROI grátis</div>
+      <div class="bonus-desc">Calculamos quanto sua empresa vai economizar no primeiro ano. Sem compromisso.</div>
+      <div class="bonus-valor">✓ Análise personalizada</div>
+    </div>
+    <div class="bonus-card">
+      <div class="bonus-icon">🤝</div>
+      <div class="bonus-title">Migração assistida</div>
+      <div class="bonus-desc">Migramos seu histórico de ponto para o Secullum sem perda de dados e sem custo.</div>
+      <div class="bonus-valor">✓ Zero custo adicional</div>
+    </div>
+    <div class="bonus-card">
+      <div class="bonus-icon">🎓</div>
+      <div class="bonus-title">Treinamento completo</div>
+      <div class="bonus-desc">Capacitação com certificado digital para toda sua equipe de RH e supervisores.</div>
+      <div class="bonus-valor">✓ Incluído no plano</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section class="section section-contato" id="contato">
+  <div class="section-inner">
+    <div class="fade-up">
+      <div class="section-tag">Entre em contato</div>
+      <h2 class="section-title">Fale com um <span class="g">especialista</span> agora</h2>
+    </div>
+    <div class="contato-grid fade-up">
+      <div>
+        <p style="color:var(--texto-muted);font-size:15px;margin-bottom:28px;line-height:1.7">Nossa equipe está pronta para tirar todas as suas dúvidas, apresentar uma demonstração ao vivo e enviar uma proposta personalizada para o seu negócio.</p>
+        <a class="contato-canal" href="https://wa.me/5521986497367" target="_blank">
+          <div class="contato-canal-icon cc-wpp">💬</div>
+          <div><div class="canal-title">(21) 98649-7367</div><div class="canal-sub">WhatsApp — Resposta imediata</div></div>
+        </a>
+        <a class="contato-canal" href="https://instagram.com/Deponto" target="_blank">
+          <div class="contato-canal-icon cc-ig">📸</div>
+          <div><div class="canal-title">@Deponto</div><div class="canal-sub">Instagram — Novidades e cases</div></div>
+        </a>
+        <a class="contato-canal" href="https://facebook.com/Depontoap" target="_blank">
+          <div class="contato-canal-icon cc-fb">👍</div>
+          <div><div class="canal-title">/Depontoap</div><div class="canal-sub">Facebook — Comunidade</div></div>
+        </a>
+        <div style="margin-top:28px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:20px">
+          <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;margin-bottom:6px">De Ponto a Ponto</div>
+          <div style="font-size:13px;color:var(--texto-muted)">Fundada em 1990 · Há mais de 30 anos superando expectativas</div>
+        </div>
+      </div>
+      <div class="form-box">
+        <h3>Solicite sua proposta</h3>
+        <p>Preencha e entraremos em contato em até 2 horas úteis.</p>
+        <div class="fg"><label>Nome</label><input type="text" id="cNome" placeholder="Seu nome completo"></div>
+        <div class="fg"><label>Empresa</label><input type="text" id="cEmpresa" placeholder="Nome da empresa"></div>
+        <div class="fg"><label>WhatsApp</label><input type="tel" id="cWpp" placeholder="(21) 99999-9999"></div>
+        <div class="fg">
+          <label>Funcionários</label>
+          <select id="cSize">
+            <option>Até 30</option><option>30 a 100</option><option selected>100 a 300</option><option>Mais de 300</option>
+          </select>
+        </div>
+        <div class="fg"><label>Mensagem (opcional)</label><textarea id="cMsg" placeholder="Descreva seu principal desafio..."></textarea></div>
+        <button class="btn-form" onclick="submitContato()">📩 Enviar e aguardar contato</button>
+        <p id="formMsg" style="text-align:center;margin-top:12px;font-size:13px;display:none;color:#4ADE80">✓ Recebemos! Nossa equipe entrará em contato em breve.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">De <span>Ponto</span> a Ponto</div>
+  <p style="margin-top:6px">Há mais de 30 anos superando expectativas · Secullum Web Ultimate com Reconhecimento Facial</p>
+  <p style="margin-top:12px">(21) 98649-7367 · @Deponto · /Depontoap</p>
+  <p style="margin-top:16px;font-size:11px;color:rgba(255,255,255,.2)">© 2025 De Ponto a Ponto. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+// Modal Lead
+window.onload = () => {
+  setTimeout(()=>{ document.getElementById('leadModal').classList.remove('hidden') }, 800);
+};
+function closeModal(){ document.getElementById('leadModal').classList.add('hidden'); triggerBars(); }
+function submitLead(){
+  const nome = document.getElementById('mNome').value;
+  if(!nome){ document.getElementById('mNome').focus(); return; }
+  document.getElementById('formContent').style.display='none';
+  document.getElementById('successContent').style.display='block';
+  setTimeout(()=>{ closeModal(); }, 3000);
+}
+
+// Barras animadas ao scroll
+function triggerBars(){
+  document.querySelectorAll('.roi-fill').forEach(bar=>{
+    const w = bar.getAttribute('data-width') || bar.style.getPropertyValue('--w');
+    bar.style.width = w;
+  });
+}
+
+// Scroll animations
+const obs = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      if(e.target.querySelector('.roi-fill')) triggerBars();
+    }
+  });
+},{threshold:0.1});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+
+// ROI calc
+function setSize(n, val){
+  document.getElementById('empSize').textContent = n + ' funcionários';
+  document.getElementById('calcVal').textContent = val;
+}
+
+// Countdown
+let secs = 900;
+setInterval(()=>{
+  secs--;
+  if(secs < 0) secs = 900;
+  const m = Math.floor(secs/60);
+  const s = secs % 60;
+  const el = document.getElementById('cdM');
+  const es = document.getElementById('cdS');
+  if(el) el.textContent = (m < 10 ? '0' : '') + m;
+  if(es) es.textContent = (s < 10 ? '0' : '') + s;
+}, 1000);
+
+// Contato form
+function submitContato(){
+  const n = document.getElementById('cNome').value;
+  const w = document.getElementById('cWpp').value;
+  if(!n || !w){ alert('Por favor, preencha seu nome e WhatsApp.'); return; }
+  const msg = document.getElementById('formMsg');
+  msg.style.display = 'block';
+  const wppLink = `https://wa.me/5521986497367?text=Olá!%20Me%20chamo%20${encodeURIComponent(n)}%20da%20empresa%20${encodeURIComponent(document.getElementById('cEmpresa').value)}%20e%20tenho%20${encodeURIComponent(document.getElementById('cSize').value)}%20funcionários.%20Quero%20uma%20proposta%20do%20Secullum%20Web%20Ultimate!`;
+  setTimeout(()=>{ window.open(wppLink,'_blank'); }, 800);
+}
+
+// Smooth nav
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', e=>{
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t){ e.preventDefault(); t.scrollIntoView({behavior:'smooth', block:'start'}); }
+  });
+});
+</script>
+</body>
+</html>
