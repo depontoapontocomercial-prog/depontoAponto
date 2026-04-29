@@ -1,3 +1,5 @@
+html
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -23,19 +25,23 @@
   --branco:#FFFFFF;
   --texto-muted:#8E8EA8;
   --borda:#2D2D44;
+  --brand-coral:#E86B5F;
+  --brand-salmon:#F4A89A;
+  --brand-purple:#4B3582;
 }
 html{scroll-behavior:smooth}
 body{font-family:'Inter',sans-serif;background:var(--preto);color:var(--branco);line-height:1.6;overflow-x:hidden}
 
-/* === SCROLLBAR === */
 ::-webkit-scrollbar{width:6px}
 ::-webkit-scrollbar-track{background:var(--preto)}
 ::-webkit-scrollbar-thumb{background:var(--rosa);border-radius:3px}
 
+/* === LOGO SVG === */
+.logo-svg{width:44px;height:44px;flex-shrink:0}
+
 /* === NAV === */
 .nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,10,15,0.92);backdrop-filter:blur(16px);border-bottom:1px solid rgba(233,30,140,0.15);padding:14px 5%;display:flex;align-items:center;justify-content:space-between}
 .nav-logo{display:flex;align-items:center;gap:12px}
-.nav-logo-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--rosa),var(--roxo));border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
 .nav-brand{font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;line-height:1.2}
 .nav-brand span{color:var(--rosa)}
 .nav-brand small{display:block;font-size:10px;font-weight:400;color:var(--texto-muted);letter-spacing:.08em}
@@ -107,14 +113,13 @@ body{font-family:'Inter',sans-serif;background:var(--preto);color:var(--branco);
 .feat-tag{display:inline-block;background:rgba(233,30,140,0.15);color:var(--rosa-light);font-size:11px;font-weight:600;padding:3px 12px;border-radius:20px;margin-top:14px}
 .feat-card.destaque{border-color:rgba(233,30,140,0.4);background:rgba(233,30,140,0.06)}
 
-/* === ROI INFOGRÁFICO === */
+/* === ROI === */
 .section-roi{background:var(--preto)}
 .roi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:40px}
 .roi-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:28px 20px;text-align:center;position:relative;overflow:hidden}
 .roi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--rosa),var(--roxo-light))}
 .roi-emoji{font-size:32px;margin-bottom:14px}
 .roi-num{font-family:'Montserrat',sans-serif;font-size:38px;font-weight:900;background:linear-gradient(135deg,var(--rosa-light),var(--rosa));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
-.roi-num sub{font-size:18px;-webkit-text-fill-color:transparent;background:linear-gradient(135deg,#aaa,#ccc);-webkit-background-clip:text}
 .roi-label{font-size:12px;color:var(--texto-muted);margin-top:8px;line-height:1.4}
 .roi-bar{height:5px;background:rgba(255,255,255,.06);border-radius:3px;margin-top:16px;overflow:hidden}
 .roi-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--rosa),var(--roxo-light));width:0;transition:width 1.2s ease}
@@ -145,7 +150,6 @@ body{font-family:'Inter',sans-serif;background:var(--preto);color:var(--branco);
 .comp-table td.ult{background:rgba(233,30,140,0.04);border-left:1px solid rgba(233,30,140,.1);border-right:1px solid rgba(233,30,140,.1);text-align:center}
 .chk{color:#4ADE80;font-weight:700;font-size:16px}
 .xk{color:rgba(255,255,255,.15);font-size:16px}
-.pk{color:#FACC15;font-weight:700}
 
 /* === DEPOIMENTOS === */
 .section-dep{background:var(--preto)}
@@ -180,7 +184,7 @@ body{font-family:'Inter',sans-serif;background:var(--preto);color:var(--branco);
 .plano-btn-sec{background:transparent;color:rgba(255,255,255,.6);border:1.5px solid rgba(255,255,255,.1)}
 .plano-btn-sec:hover{border-color:rgba(233,30,140,.4);color:var(--rosa-light)}
 
-/* === CTA / FECHAMENTO === */
+/* === CTA === */
 .section-cta{background:var(--preto);padding:60px 5% 100px}
 .cta-box{max-width:1080px;margin:0 auto;background:linear-gradient(135deg,var(--roxo) 0%,var(--cinza-escuro) 40%,rgba(233,30,140,0.15) 100%);border:1px solid rgba(233,30,140,0.25);border-radius:24px;padding:64px 48px;text-align:center;position:relative;overflow:hidden}
 .cta-box::before{content:'';position:absolute;top:-100px;right:-100px;width:300px;height:300px;background:radial-gradient(circle,rgba(233,30,140,0.2),transparent 70%);border-radius:50%}
@@ -236,18 +240,44 @@ body{font-family:'Inter',sans-serif;background:var(--preto);color:var(--branco);
 .btn-form{width:100%;padding:13px;background:linear-gradient(135deg,var(--rosa),var(--rosa-dark));color:#fff;border:none;border-radius:9px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:14px;cursor:pointer;transition:all .2s;margin-top:4px}
 .btn-form:hover{box-shadow:0 6px 24px rgba(233,30,140,.4);transform:translateY(-1px)}
 
+/* === SEÇÃO HOMOLOGADA (identidade De Ponto a Ponto) === */
+.section-homologada{background:#f5f0f8;padding:80px 5%;position:relative;overflow:hidden}
+.homologada-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+@media(max-width:768px){.homologada-inner{grid-template-columns:1fr}}
+.homologada-deco-circle{position:absolute;right:-120px;top:50%;transform:translateY(-50%);width:480px;height:480px;border-radius:50%;background:linear-gradient(135deg,var(--brand-purple),#2a1a5e);opacity:0.85;pointer-events:none}
+.homologada-deco-circle-inner{position:absolute;right:-80px;top:50%;transform:translateY(-50%);width:380px;height:380px;border-radius:50%;background:rgba(255,255,255,0.08);pointer-events:none}
+.homologada-logo{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.homologada-logo-svg{width:56px;height:56px}
+.homologada-brand{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900;color:#1a1a2e;line-height:1.1}
+.homologada-brand small{display:block;font-size:11px;font-weight:400;color:#888;letter-spacing:.06em}
+.homologada-text h2{font-family:'Montserrat',sans-serif;font-size:clamp(28px,4vw,44px);font-weight:900;color:#1a1a2e;line-height:1.1;margin-bottom:20px}
+.homologada-text h2 .h-accent{color:var(--brand-purple)}
+.homologada-text p{font-size:15px;color:#555;line-height:1.75;margin-bottom:16px}
+.homologada-badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.h-badge{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1.5px solid var(--brand-purple);color:var(--brand-purple);padding:7px 16px;border-radius:24px;font-size:12px;font-weight:700;font-family:'Montserrat',sans-serif}
+.homologada-visual{position:relative;z-index:2;display:flex;flex-direction:column;gap:16px}
+.hv-card{background:#fff;border-radius:16px;padding:20px 24px;box-shadow:0 4px 24px rgba(0,0,0,0.08);display:flex;align-items:center;gap:14px}
+.hv-card-icon{width:48px;height:48px;border-radius:12px;background:linear-gradient(135deg,var(--brand-purple),#7b52cc);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.hv-card-text strong{font-family:'Montserrat',sans-serif;font-size:14px;color:#1a1a2e;display:block;margin-bottom:3px}
+.hv-card-text span{font-size:12px;color:#888}
+.hv-stat-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hv-stat{background:#fff;border-radius:14px;padding:18px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,0.07)}
+.hv-stat-num{font-family:'Montserrat',sans-serif;font-size:28px;font-weight:900;color:var(--brand-purple);line-height:1}
+.hv-stat-label{font-size:11px;color:#888;margin-top:5px}
+
 /* === FOOTER === */
 footer{background:var(--preto);border-top:1px solid rgba(255,255,255,.05);padding:40px 5%;text-align:center}
-.footer-logo{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:900;margin-bottom:8px}
-.footer-logo span{color:var(--rosa)}
+.footer-logo{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:10px}
+.footer-logo-text{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:900}
+.footer-logo-text span{color:var(--rosa)}
 footer p{font-size:13px;color:var(--texto-muted)}
 
-/* === FLUTUANTE WPP === */
+/* === WPP FLOAT === */
 .wpp-float{position:fixed;bottom:28px;right:28px;z-index:999;background:#25D366;border:none;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer;box-shadow:0 4px 20px rgba(37,211,102,0.4);transition:all .2s;text-decoration:none;animation:wppPulse 2.5s ease-in-out infinite}
 .wpp-float:hover{transform:scale(1.08);box-shadow:0 6px 30px rgba(37,211,102,0.55)}
 @keyframes wppPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.4)}50%{box-shadow:0 4px 40px rgba(37,211,102,0.7)}}
 
-/* === LEAD FORM MODAL === */
+/* === MODAL === */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);backdrop-filter:blur(8px);z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px;animation:fadeIn .2s ease}
 .modal-overlay.hidden{display:none}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
@@ -272,9 +302,9 @@ footer p{font-size:13px;color:var(--texto-muted)}
   .btn-cta{width:100%;justify-content:center}
   .flow-steps{gap:6px}
   .fs-arrow{display:none}
+  .homologada-deco-circle{display:none}
 }
 
-/* === ANIMATIONS === */
 .fade-up{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .fade-up.visible{opacity:1;transform:translateY(0)}
 </style>
@@ -284,7 +314,22 @@ footer p{font-size:13px;color:var(--texto-muted)}
 <!-- NAV -->
 <nav class="nav">
   <div class="nav-logo">
-    <div class="nav-logo-icon">☀️</div>
+    <!-- Logo De Ponto a Ponto (sunset/horizon style) -->
+    <svg class="logo-svg" viewBox="0 0 44 44" xmlns="http://www.w3.org/2000/svg">
+      <rect width="44" height="44" rx="10" fill="url(#navGrad)"/>
+      <defs>
+        <linearGradient id="navGrad" x1="0" y1="0" x2="44" y2="44">
+          <stop offset="0%" stop-color="#f5e8e0"/>
+          <stop offset="100%" stop-color="#e8d5c8"/>
+        </linearGradient>
+      </defs>
+      <!-- Sun -->
+      <circle cx="22" cy="19" r="6" fill="#E86B5F"/>
+      <!-- Horizon lines -->
+      <rect x="8" y="27" width="28" height="2.5" rx="1.25" fill="#E86B5F" opacity="0.9"/>
+      <rect x="11" y="31.5" width="22" height="2" rx="1" fill="#E86B5F" opacity="0.6"/>
+      <rect x="14" y="35.5" width="16" height="1.5" rx="0.75" fill="#E86B5F" opacity="0.35"/>
+    </svg>
     <div class="nav-brand">
       De <span>Ponto</span> a Ponto
       <small>Há mais de 30 anos superando expectativas</small>
@@ -310,10 +355,14 @@ footer p{font-size:13px;color:var(--texto-muted)}
         <label>Número de funcionários</label>
         <select id="mSize">
           <option value="">Selecione...</option>
+          <option>A partir de 10 funcionários</option>
           <option>Até 30 funcionários</option>
-          <option>30 a 100 funcionários</option>
-          <option>100 a 300 funcionários</option>
-          <option>Mais de 300 funcionários</option>
+          <option>Até 50 funcionários</option>
+          <option>Até 100 funcionários</option>
+          <option>Até 200 funcionários</option>
+          <option>Até 300 funcionários</option>
+          <option>Até 500 funcionários</option>
+          <option>Mais de 1000 funcionários</option>
         </select>
       </div>
       <button class="btn-form" onclick="submitLead()">🚀 Ver minha apresentação personalizada</button>
@@ -399,34 +448,17 @@ footer p{font-size:13px;color:var(--texto-muted)}
       <h2 class="section-title">Secullum Web Ultimate com <span class="g">Reconhecimento Facial</span></h2>
       <p class="section-sub">Tecnologia de IA que identifica seu colaborador em menos de 1 segundo — online ou offline. Funciona com óculos, máscara e qualquer iluminação.</p>
     </div>
-
     <div class="flow-steps fade-up">
-      <div class="fs">
-        <div class="fs-icon-wrap"><div class="fs-circle">📷</div><div class="fs-num">1</div></div>
-        <div class="fs-title">Funcionário se aproxima do equipamento</div>
-      </div>
+      <div class="fs"><div class="fs-icon-wrap"><div class="fs-circle">📷</div><div class="fs-num">1</div></div><div class="fs-title">Funcionário se aproxima do equipamento</div></div>
       <div class="fs-arrow">→</div>
-      <div class="fs">
-        <div class="fs-icon-wrap"><div class="fs-circle">🧠</div><div class="fs-num">2</div></div>
-        <div class="fs-title">IA reconhece em 0,3 segundos</div>
-      </div>
+      <div class="fs"><div class="fs-icon-wrap"><div class="fs-circle">🧠</div><div class="fs-num">2</div></div><div class="fs-title">IA reconhece em 0,3 segundos</div></div>
       <div class="fs-arrow">→</div>
-      <div class="fs">
-        <div class="fs-icon-wrap"><div class="fs-circle">✅</div><div class="fs-num">3</div></div>
-        <div class="fs-title">Registro automático e seguro</div>
-      </div>
+      <div class="fs"><div class="fs-icon-wrap"><div class="fs-circle">✅</div><div class="fs-num">3</div></div><div class="fs-title">Registro automático e seguro</div></div>
       <div class="fs-arrow">→</div>
-      <div class="fs">
-        <div class="fs-icon-wrap"><div class="fs-circle">📊</div><div class="fs-num">4</div></div>
-        <div class="fs-title">Painel web em tempo real</div>
-      </div>
+      <div class="fs"><div class="fs-icon-wrap"><div class="fs-circle">📊</div><div class="fs-num">4</div></div><div class="fs-title">Painel web em tempo real</div></div>
       <div class="fs-arrow">→</div>
-      <div class="fs">
-        <div class="fs-icon-wrap"><div class="fs-circle">📁</div><div class="fs-num">5</div></div>
-        <div class="fs-title">Exportação eSocial/AFD com 1 clique</div>
-      </div>
+      <div class="fs"><div class="fs-icon-wrap"><div class="fs-circle">📁</div><div class="fs-num">5</div></div><div class="fs-title">Exportação eSocial/AFD com 1 clique</div></div>
     </div>
-
     <div class="feat-grid fade-up">
       <div class="feat-card destaque">
         <div class="feat-icon">🤳</div>
@@ -477,40 +509,24 @@ footer p{font-size:13px;color:var(--texto-muted)}
       <p class="section-sub">Empresas que adotaram o Secullum Web Ultimate relatam resultados expressivos já no primeiro mês.</p>
     </div>
     <div class="roi-grid fade-up">
-      <div class="roi-card">
-        <div class="roi-emoji">💰</div>
-        <div class="roi-num">97%</div>
-        <div class="roi-label">Redução em registros fraudulentos</div>
-        <div class="roi-bar"><div class="roi-fill" style="--w:97%" data-width="97%"></div></div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-emoji">⏱️</div>
-        <div class="roi-num">8h</div>
-        <div class="roi-label">Economizadas por mês no RH</div>
-        <div class="roi-bar"><div class="roi-fill" style="--w:80%" data-width="80%"></div></div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-emoji">⚖️</div>
-        <div class="roi-num">0</div>
-        <div class="roi-label">Ações trabalhistas por ponto</div>
-        <div class="roi-bar"><div class="roi-fill" style="--w:100%" data-width="100%"></div></div>
-      </div>
-      <div class="roi-card">
-        <div class="roi-emoji">🚀</div>
-        <div class="roi-num">3x</div>
-        <div class="roi-label">Retorno sobre investimento no 1º ano</div>
-        <div class="roi-bar"><div class="roi-fill" style="--w:90%" data-width="90%"></div></div>
-      </div>
+      <div class="roi-card"><div class="roi-emoji">💰</div><div class="roi-num">97%</div><div class="roi-label">Redução em registros fraudulentos</div><div class="roi-bar"><div class="roi-fill" data-width="97%"></div></div></div>
+      <div class="roi-card"><div class="roi-emoji">⏱️</div><div class="roi-num">8h</div><div class="roi-label">Economizadas por mês no RH</div><div class="roi-bar"><div class="roi-fill" data-width="80%"></div></div></div>
+      <div class="roi-card"><div class="roi-emoji">⚖️</div><div class="roi-num">0</div><div class="roi-label">Ações trabalhistas por ponto</div><div class="roi-bar"><div class="roi-fill" data-width="100%"></div></div></div>
+      <div class="roi-card"><div class="roi-emoji">🚀</div><div class="roi-num">3x</div><div class="roi-label">Retorno sobre investimento no 1º ano</div><div class="roi-bar"><div class="roi-fill" data-width="90%"></div></div></div>
     </div>
     <div class="roi-calc fade-up">
       <div class="roi-calc-left">
         <h3>💡 Cálculo de economia estimada</h3>
-        <p>Uma empresa com <strong id="empSize">100 funcionários</strong> que adota o Secullum Web Ultimate economiza em média por ano com fraudes eliminadas, horas extras indevidas e processos trabalhistas evitados.</p>
+        <p>Uma empresa com <strong id="empSize">100 funcionários</strong> que adota o Secullum Web Ultimate economiza em média por ano.</p>
         <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">
-          <button onclick="setSize(50,'R$ 36.000')" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:7px 14px;border-radius:8px;font-size:12px;cursor:pointer;font-family:Inter,sans-serif;transition:all .2s">Até 50</button>
-          <button onclick="setSize(100,'R$ 72.000')" style="background:rgba(233,30,140,.15);border:1px solid rgba(233,30,140,.35);color:var(--rosa-light);padding:7px 14px;border-radius:8px;font-size:12px;cursor:pointer;font-family:Inter,sans-serif;transition:all .2s" id="btn100">50-100</button>
-          <button onclick="setSize(300,'R$ 216.000')" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:7px 14px;border-radius:8px;font-size:12px;cursor:pointer;font-family:Inter,sans-serif;transition:all .2s">100-300</button>
-          <button onclick="setSize(500,'R$ 360.000')" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:7px 14px;border-radius:8px;font-size:12px;cursor:pointer;font-family:Inter,sans-serif;transition:all .2s">+300</button>
+          <button onclick="setSize(10,'R$ 7.200')" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:7px 14px;border-radius:8px;font-size:12px;cursor:pointer;font-family:Inter,sans-serif">10</button>
+          <button onclick="setSize(30,'R$ 21.600')" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:7px 14px;border-radius:8px;font-size:12px;cursor:pointer;font-family:Inter,sans-serif">30</button>
+          <button onclick="setSize(50,'R$ 36.000')" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:7px 14px;border-radius:8px;font-size:12px;cursor:pointer;font-family:Inter,sans-serif">50</button>
+          <button onclick="setSize(100,'R$ 72.000')" style="background:rgba(233,30,140,.15);border:1px solid rgba(233,30,140,.35);color:var(--rosa-light);padding:7px 14px;border-radius:8px;font-size:12px;cursor:pointer;font-family:Inter,sans-serif">100</button>
+          <button onclick="setSize(200,'R$ 144.000')" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:7px 14px;border-radius:8px;font-size:12px;cursor:pointer;font-family:Inter,sans-serif">200</button>
+          <button onclick="setSize(300,'R$ 216.000')" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:7px 14px;border-radius:8px;font-size:12px;cursor:pointer;font-family:Inter,sans-serif">300</button>
+          <button onclick="setSize(500,'R$ 360.000')" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:7px 14px;border-radius:8px;font-size:12px;cursor:pointer;font-family:Inter,sans-serif">500</button>
+          <button onclick="setSize(1000,'R$ 720.000')" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.7);padding:7px 14px;border-radius:8px;font-size:12px;cursor:pointer;font-family:Inter,sans-serif">1000+</button>
         </div>
       </div>
       <div>
@@ -518,7 +534,6 @@ footer p{font-size:13px;color:var(--texto-muted)}
         <div class="roi-calc-num"><small>economia estimada/ano</small></div>
       </div>
     </div>
-
     <div style="margin-top:48px" class="fade-up">
       <h3 style="font-family:'Montserrat',sans-serif;font-size:20px;font-weight:700;margin-bottom:24px">⚡ Implantação em menos de 1 semana</h3>
       <div class="timeline">
@@ -676,31 +691,84 @@ footer p{font-size:13px;color:var(--texto-muted)}
       </div>
     </div>
   </div>
-
   <div class="bonus-grid fade-up">
-    <div class="bonus-card">
-      <div class="bonus-icon">🎁</div>
-      <div class="bonus-title">Implementação gratuita</div>
-      <div class="bonus-desc">Configuração e treinamento sem custo adicional para contratos fechados com nossa equipe.</div>
-      <div class="bonus-valor">✓ Valor: R$ 2.500 grátis</div>
+    <div class="bonus-card"><div class="bonus-icon">🎁</div><div class="bonus-title">Implementação gratuita</div><div class="bonus-desc">Configuração e treinamento sem custo adicional para contratos fechados com nossa equipe.</div><div class="bonus-valor">✓ Valor: R$ 2.500 grátis</div></div>
+    <div class="bonus-card"><div class="bonus-icon">📊</div><div class="bonus-title">Relatório de ROI grátis</div><div class="bonus-desc">Calculamos quanto sua empresa vai economizar no primeiro ano. Sem compromisso.</div><div class="bonus-valor">✓ Análise personalizada</div></div>
+    <div class="bonus-card"><div class="bonus-icon">🤝</div><div class="bonus-title">Migração assistida</div><div class="bonus-desc">Migramos seu histórico de ponto para o Secullum sem perda de dados e sem custo.</div><div class="bonus-valor">✓ Zero custo adicional</div></div>
+    <div class="bonus-card"><div class="bonus-icon">🎓</div><div class="bonus-title">Treinamento completo</div><div class="bonus-desc">Capacitação com certificado digital para toda sua equipe de RH e supervisores.</div><div class="bonus-valor">✓ Incluído no plano</div></div>
+  </div>
+</section>
+
+<!-- SEÇÃO HOMOLOGADA — identidade visual De Ponto a Ponto -->
+<section class="section-homologada fade-up" id="homologada">
+  <div class="homologada-deco-circle"></div>
+  <div class="homologada-deco-circle-inner"></div>
+  <div class="homologada-inner">
+    <div class="homologada-text">
+      <div class="homologada-logo">
+        <!-- Logo De Ponto a Ponto no estilo dos slides -->
+        <svg class="homologada-logo-svg" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="28" cy="24" r="8" fill="#E86B5F"/>
+          <rect x="8" y="35" width="40" height="3.5" rx="1.75" fill="#E86B5F" opacity="0.95"/>
+          <rect x="12" y="41" width="32" height="3" rx="1.5" fill="#E86B5F" opacity="0.6"/>
+          <rect x="17" y="47" width="22" height="2.5" rx="1.25" fill="#E86B5F" opacity="0.35"/>
+        </svg>
+        <div class="homologada-brand">
+          De Ponto a Ponto
+          <small>Há mais de 30 anos superando expectativas</small>
+        </div>
+      </div>
+      <h2>Você precisa controlar o seu ponto de forma <span class="h-accent">homologada e validada.</span></h2>
+      <p>Sem um sistema de controle de ponto adequado, as empresas ficam impossibilitadas de acompanhar a jornada dos colaboradores, ficando sem as informações necessárias para a folha de ponto.</p>
+      <p>Ter um bom controle das horas extras que os funcionários realizam poupa a empresa de receber processos trabalhistas e faz com que ela esteja cumprindo a lei.</p>
+      <p><strong>O controle de ponto reduz bastante os erros na folha de pagamento — os registros impedem pagamentos indevidos.</strong></p>
+      <div class="homologada-badges">
+        <span class="h-badge">✅ Portaria 671/MTE</span>
+        <span class="h-badge">✅ eSocial</span>
+        <span class="h-badge">✅ REP-C homologado</span>
+        <span class="h-badge">✅ AFD automático</span>
+      </div>
     </div>
-    <div class="bonus-card">
-      <div class="bonus-icon">📊</div>
-      <div class="bonus-title">Relatório de ROI grátis</div>
-      <div class="bonus-desc">Calculamos quanto sua empresa vai economizar no primeiro ano. Sem compromisso.</div>
-      <div class="bonus-valor">✓ Análise personalizada</div>
-    </div>
-    <div class="bonus-card">
-      <div class="bonus-icon">🤝</div>
-      <div class="bonus-title">Migração assistida</div>
-      <div class="bonus-desc">Migramos seu histórico de ponto para o Secullum sem perda de dados e sem custo.</div>
-      <div class="bonus-valor">✓ Zero custo adicional</div>
-    </div>
-    <div class="bonus-card">
-      <div class="bonus-icon">🎓</div>
-      <div class="bonus-title">Treinamento completo</div>
-      <div class="bonus-desc">Capacitação com certificado digital para toda sua equipe de RH e supervisores.</div>
-      <div class="bonus-valor">✓ Incluído no plano</div>
+    <div class="homologada-visual">
+      <div class="hv-card">
+        <div class="hv-card-icon">⚖️</div>
+        <div class="hv-card-text">
+          <strong>Elimine riscos trabalhistas</strong>
+          <span>Registros precisos protegem sua empresa de reclamações e auditorias</span>
+        </div>
+      </div>
+      <div class="hv-card">
+        <div class="hv-card-icon">🗂️</div>
+        <div class="hv-card-text">
+          <strong>Centralize toda jornada em um só lugar</strong>
+          <span>Integração com softwares de folha de pagamento</span>
+        </div>
+      </div>
+      <div class="hv-card">
+        <div class="hv-card-icon">📱</div>
+        <div class="hv-card-text">
+          <strong>As 4 batidas — feitas do jeito certo</strong>
+          <span>Entrada, saída do almoço, retorno e saída registradas com precisão</span>
+        </div>
+      </div>
+      <div class="hv-stat-row">
+        <div class="hv-stat">
+          <div class="hv-stat-num">+30</div>
+          <div class="hv-stat-label">anos de mercado</div>
+        </div>
+        <div class="hv-stat">
+          <div class="hv-stat-num">8k+</div>
+          <div class="hv-stat-label">empresas atendidas</div>
+        </div>
+        <div class="hv-stat">
+          <div class="hv-stat-num">0</div>
+          <div class="hv-stat-label">ações trabalhistas por ponto</div>
+        </div>
+        <div class="hv-stat">
+          <div class="hv-stat-num">99,7%</div>
+          <div class="hv-stat-label">precisão facial</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -741,7 +809,14 @@ footer p{font-size:13px;color:var(--texto-muted)}
         <div class="fg">
           <label>Funcionários</label>
           <select id="cSize">
-            <option>Até 30</option><option>30 a 100</option><option selected>100 a 300</option><option>Mais de 300</option>
+            <option>A partir de 10 funcionários</option>
+            <option>Até 30 funcionários</option>
+            <option>Até 50 funcionários</option>
+            <option>Até 100 funcionários</option>
+            <option>Até 200 funcionários</option>
+            <option selected>Até 300 funcionários</option>
+            <option>Até 500 funcionários</option>
+            <option>Mais de 1000 funcionários</option>
           </select>
         </div>
         <div class="fg"><label>Mensagem (opcional)</label><textarea id="cMsg" placeholder="Descreva seu principal desafio..."></textarea></div>
@@ -754,14 +829,21 @@ footer p{font-size:13px;color:var(--texto-muted)}
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo">De <span>Ponto</span> a Ponto</div>
+  <div class="footer-logo">
+    <svg width="32" height="32" viewBox="0 0 56 56" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="28" cy="24" r="8" fill="#E86B5F"/>
+      <rect x="8" y="35" width="40" height="3.5" rx="1.75" fill="#E86B5F" opacity="0.95"/>
+      <rect x="12" y="41" width="32" height="3" rx="1.5" fill="#E86B5F" opacity="0.6"/>
+      <rect x="17" y="47" width="22" height="2.5" rx="1.25" fill="#E86B5F" opacity="0.35"/>
+    </svg>
+    <div class="footer-logo-text">De <span>Ponto</span> a Ponto</div>
+  </div>
   <p style="margin-top:6px">Há mais de 30 anos superando expectativas · Secullum Web Ultimate com Reconhecimento Facial</p>
   <p style="margin-top:12px">(21) 98649-7367 · @Deponto · /Depontoap</p>
   <p style="margin-top:16px;font-size:11px;color:rgba(255,255,255,.2)">© 2025 De Ponto a Ponto. Todos os direitos reservados.</p>
 </footer>
 
 <script>
-// Modal Lead
 window.onload = () => {
   setTimeout(()=>{ document.getElementById('leadModal').classList.remove('hidden') }, 800);
 };
@@ -773,33 +855,26 @@ function submitLead(){
   document.getElementById('successContent').style.display='block';
   setTimeout(()=>{ closeModal(); }, 3000);
 }
-
-// Barras animadas ao scroll
 function triggerBars(){
   document.querySelectorAll('.roi-fill').forEach(bar=>{
-    const w = bar.getAttribute('data-width') || bar.style.getPropertyValue('--w');
-    bar.style.width = w;
+    bar.style.width = bar.getAttribute('data-width');
   });
 }
-
-// Scroll animations
 const obs = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{
     if(e.isIntersecting){
       e.target.classList.add('visible');
-      if(e.target.querySelector('.roi-fill')) triggerBars();
+      if(e.target.querySelector && e.target.querySelector('.roi-fill')) triggerBars();
     }
   });
 },{threshold:0.1});
 document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
 
-// ROI calc
 function setSize(n, val){
   document.getElementById('empSize').textContent = n + ' funcionários';
   document.getElementById('calcVal').textContent = val;
 }
 
-// Countdown
 let secs = 900;
 setInterval(()=>{
   secs--;
@@ -812,18 +887,16 @@ setInterval(()=>{
   if(es) es.textContent = (s < 10 ? '0' : '') + s;
 }, 1000);
 
-// Contato form
 function submitContato(){
   const n = document.getElementById('cNome').value;
   const w = document.getElementById('cWpp').value;
   if(!n || !w){ alert('Por favor, preencha seu nome e WhatsApp.'); return; }
   const msg = document.getElementById('formMsg');
   msg.style.display = 'block';
-  const wppLink = `https://wa.me/5521986497367?text=Olá!%20Me%20chamo%20${encodeURIComponent(n)}%20da%20empresa%20${encodeURIComponent(document.getElementById('cEmpresa').value)}%20e%20tenho%20${encodeURIComponent(document.getElementById('cSize').value)}%20funcionários.%20Quero%20uma%20proposta%20do%20Secullum%20Web%20Ultimate!`;
+  const wppLink = `https://wa.me/5521986497367?text=Olá!%20Me%20chamo%20${encodeURIComponent(n)}%20da%20empresa%20${encodeURIComponent(document.getElementById('cEmpresa').value)}%20e%20tenho%20${encodeURIComponent(document.getElementById('cSize').value)}.%20Quero%20uma%20proposta%20do%20Secullum%20Web%20Ultimate!`;
   setTimeout(()=>{ window.open(wppLink,'_blank'); }, 800);
 }
 
-// Smooth nav
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click', e=>{
     const t = document.querySelector(a.getAttribute('href'));
